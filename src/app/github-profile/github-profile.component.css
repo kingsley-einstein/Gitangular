@@ -19,4 +19,5 @@ mat-card-content {
     align-items: center;
     flex-flow: column wrap;
     padding: 5px;
+    text-overflow: clip;
 }
