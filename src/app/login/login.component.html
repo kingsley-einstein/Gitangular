@@ -1,0 +1,37 @@
+<div class="main-container">
+  
+  <div class="login">
+    <mat-card>
+        <mat-menu #loginMenu="matMenu">
+            <button mat-menu-item (click)="navigateToRegistrationPage()">
+              <i class="fa fa-user-plus"></i>
+              Sign Up
+            </button>
+          </mat-menu>
+          <button mat-icon-button [matMenuTriggerFor]="loginMenu" style="float: right;">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+      <mat-card-header>
+        Login to Gitangular
+      </mat-card-header>
+      <mat-card-content>
+        <form id="form">
+          <mat-form-field>
+            <input matInput name="username" type="text" placeholder="Username"> 
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput name="password" type="password" placeholder="Password">
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit">Login</button>
+        </form>
+      </mat-card-content>
+      <mat-card-footer>
+        <div class="images-container">
+          <img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2016/11/github-image-796x418.png"/>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png"/>
+        </div>
+      </mat-card-footer>
+    </mat-card>
+</div>
+
+</div>

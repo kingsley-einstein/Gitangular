@@ -1,0 +1,14 @@
+.main {
+    flex: 1 auto;
+}
+
+.footer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10%;
+}
