@@ -1,4 +1,6 @@
 <div class="main-container">
+  <app-loading [condition]="isLoading"></app-loading>
+  <app-toast [message]="toast.message"></app-toast>
     <div class="register">
         <mat-card>
             <mat-menu #regMenu="matMenu">
@@ -14,20 +16,20 @@
             Register
           </mat-card-header>
           <mat-card-content>
-            <form>
+            <form [formGroup]="registrationForm" (ngSubmit)="submit()">
               <mat-form-field>
-                <input matInput type="email" placeholder="Email">
+                <input matInput type="email" placeholder="Email" formControlName="email">
               </mat-form-field>
               <mat-form-field>
-                <input matInput type="text" placeholder="Username">
+                <input matInput type="text" placeholder="Username" formControlName="username">
               </mat-form-field>
               <mat-form-field>
-                <input matInput type="password" placeholder="Password">
+                <input matInput type="password" placeholder="Password" formControlName="password">
               </mat-form-field>
               <mat-form-field>
-                <input matInput type="text" placeholder="Github Username">
+                <input matInput type="text" placeholder="Github Username" formControlName="github">
               </mat-form-field>
-              <button mat-raised-button color="primary" type="submit">Register</button>
+              <button mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid">Register</button>
             </form>
           </mat-card-content>
         </mat-card>

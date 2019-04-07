@@ -1,0 +1,31 @@
+<div class="main-container">
+  <mat-toolbar color="primary">
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="./">
+        <i class="fa fa-user"></i>
+        My Profile
+      </button>
+      <button mat-menu-item>
+        <i class="fa fa-pencil"></i>
+        Edit Profile
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <i class="fa fa-sign-out"></i>
+        Logout
+      </button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <i class="fa fa-ellipsis-v"></i>
+    </button>
+    <nav>
+      <a routerLink="./" routerLinkActive="btn btn-sm btn-success">Home</a>
+      <a routerLink="./devs" routerLinkActive="btn btn-sm btn-success">Developers</a>
+      <a href="#">Where dem developers at?</a>
+    </nav>
+  </mat-toolbar>
+  <mat-card>
+    <mat-card-content>
+      <router-outlet></router-outlet>
+    </mat-card-content>
+  </mat-card>
+</div>

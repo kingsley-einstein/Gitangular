@@ -1,5 +1,6 @@
 <div class="main-container">
-  
+  <app-loading [condition]="isLoading"></app-loading>
+  <app-toast [message]="toast.message"></app-toast>
   <div class="login">
     <mat-card>
         <mat-menu #loginMenu="matMenu">
@@ -15,14 +16,14 @@
         Login to Gitangular
       </mat-card-header>
       <mat-card-content>
-        <form id="form">
+        <form id="form" [formGroup]="loginForm" (ngSubmit)="login()">
           <mat-form-field>
-            <input matInput name="username" type="text" placeholder="Username"> 
+            <input matInput name="username" type="text" placeholder="Username" formControlName="username"> 
           </mat-form-field>
           <mat-form-field>
-            <input matInput name="password" type="password" placeholder="Password">
+            <input matInput name="password" type="password" placeholder="Password" formControlName="password">
           </mat-form-field>
-          <button mat-raised-button color="primary" type="submit">Login</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
         </form>
       </mat-card-content>
       <mat-card-footer>

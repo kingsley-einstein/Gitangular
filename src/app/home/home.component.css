@@ -1,0 +1,44 @@
+.main-container {
+    position: absolute;
+    height: calc(100% - 80px);
+    width: 100%;
+    top: 0;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    overflow: scroll;
+    display: block;
+}
+
+mat-toolbar > nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-flow: row wrap;
+}
+
+a {
+    padding: 10px 12px;
+    color: whitesmoke;
+    text-decoration: none;
+    text-align: center;
+    font-size: 15px;
+    transition: all 500ms ease-in;
+}
+
+a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 400px) {
+    a {
+        font-size: 10px;
+    }
+
+    mat-toolbar > nav {
+        margin-top: 5px;
+        align-items: flex-start;
+        justify-content: left;
+    }
+}

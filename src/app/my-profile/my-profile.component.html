@@ -1,0 +1,59 @@
+<app-loading [condition]="isLoading"></app-loading>
+<app-toast [message]="toast.message"></app-toast>
+<div class="card-holder">
+  <mat-card>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="showForm()">
+        <i class="fa fa-camera"></i>
+        Upload picture
+      </button> 
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="menu" style="float: right;">
+      <i class="fa fa-ellipsis-v"></i>
+    </button>
+    <mat-card-header>Profile View</mat-card-header>
+    <mat-card-content *ngIf="user">
+      <div *ngIf="user.picture" class="img-holder">
+        <img mat-card-md-image mat-card-avatar src="data:{{ user.picture.mimeType }};base64,{{ user.picture.binaryContent }}" alt="No image"/>
+      </div>
+      <div>
+        <i class="fa fa-user"></i>
+        <strong>Username:</strong>
+        {{ user.username }}
+      </div>
+      <div>
+        <i class="fa fa-at"></i>
+        <strong>Email:</strong>
+        {{ user.email }}
+      </div>
+      <div>
+        <i class="fa fa-github"></i>
+        <strong>Github:</strong>
+        {{ user.github }}
+      </div>
+    </mat-card-content>
+    <mat-card-footer *ngIf="displayUploadForm">
+      <button class="closeForm" (click)="closeForm()">
+        <i class="fa fa-close"></i>
+      </button>
+      <form>
+          <input type="file" (change)="detectChange($event)">
+        <button mat-raised-button color="primary" [disabled]="!picture" (click)="upload()">Upload</button>
+      </form>
+    </mat-card-footer>
+  </mat-card>
+</div>
+<mat-tab-group>
+  <mat-tab>
+    <ng-template matTabLabel>
+      <i class="fa fa-github"></i>
+      <b>My Github Profile</b>
+    </ng-template>
+  </mat-tab>
+  <mat-tab>
+    <ng-template matTabLabel>
+      <i class="fa fa-comment"></i>
+      <b>My Github Gists</b>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

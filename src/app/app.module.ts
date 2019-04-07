@@ -10,13 +10,27 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ApolloModule } from 'apollo-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpLinkModule } from 'apollo-angular-link-http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoadingComponent } from '../shared/components/loading/loading.component';
+import { ToastComponent } from '../shared/components/toast/toast.component';
+import { Activator } from '../shared/guard/activator';
+import { HomeComponent } from './home/home.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { ProfileComponent } from './profile/profile.component';
+import { DevelopersListComponent } from './developers-list/developers-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoadingComponent,
+    ToastComponent,
+    HomeComponent,
+    MyProfileComponent,
+    ProfileComponent,
+    DevelopersListComponent
   ],
   imports: [
     BrowserModule,
@@ -25,9 +39,14 @@ import { HttpLinkModule } from 'apollo-angular-link-http';
     AppMaterialModule,
     ApolloModule,
     HttpClientModule,
-    HttpLinkModule
+    HttpLinkModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    ToastComponent,
+    Activator
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

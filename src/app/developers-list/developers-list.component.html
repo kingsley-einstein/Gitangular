@@ -1,0 +1,32 @@
+<div *ngIf="users" class="list">
+  <ul *ngFor="let user of users">
+    <li>
+      <mat-card>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <i class="fa fa-user"></i>
+            View Profile
+          </button>
+        </mat-menu>
+        <button mat-icon-button [matMenuTriggerFor]="menu" style="float: right;">
+          <i class="fa fa-ellipsis-v"></i>
+        </button>
+        <mat-card-content>
+          <div *ngIf="user.picture" class="img-holder">
+            <img mat-card-md-image mat-card-avatar src="data:{{ user.picture.mimeType }};base64,{{ user.picture.binaryContent }}" alt="No Image"/>
+          </div>
+          <div>
+            <i class="fa fa-user"></i>
+            <strong>Username:</strong>
+            {{ user.username }}
+          </div>
+          <div>
+            <i class="fa fa-github"></i>
+            <strong>Github:</strong>
+            {{ user.github }}
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </li>
+  </ul>
+</div>

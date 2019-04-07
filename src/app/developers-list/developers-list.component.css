@@ -1,0 +1,30 @@
+.list {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 12px;
+}
+
+mat-card {
+    max-width: 300px;
+    max-height: 400px;
+}
+
+mat-card-content {
+    padding: 12px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.img-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 900px) {
+    .list {
+        flex-flow: column wrap;
+    }
+}

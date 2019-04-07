@@ -1,6 +1,6 @@
 export type Picture = {
-    id: number;
+    id?: number;
     mimeType: string;
-    binaryContent: string;
+    binaryContent: string | ArrayBuffer;
     name: string;
 }

@@ -1,0 +1,56 @@
+.card-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card {
+    max-width: 300px;
+    max-height: 400px;
+    font-family: 'Open Sans'
+}
+
+mat-card-header {
+    font-weight: bold;
+}
+
+mat-card-content {
+    padding: 12px;
+}
+
+mat-card-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.closeForm {
+    background: transparent;
+    outline: none;
+    float: right;
+    border: none;
+}
+
+.img-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type = "file"] {
+    width: 90%;
+    border-bottom-style: solid;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-color: silver;
+    padding: 20px;
+    outline: none;
+    margin-bottom: 5px;
+}
+
+::-webkit-file-upload-button {
+    background: transparent;
+    border: none;
+    font-size: 13px;
+}

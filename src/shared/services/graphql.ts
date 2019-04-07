@@ -15,13 +15,13 @@ export class GraphQLService {
     constructor(private apollo: Apollo, http: HttpLink) {
         apollo.create({
             link: http.create({
-                uri: environment.gitAngular
+                uri: `${environment.gitAngular}/graphql`
             }),
             cache: new InMemoryCache()
         });
     }
 
-    create(email, username, password, github) {
+    create({email, username, password, github}) {
         return this.apollo.mutate({
             mutation: gql `
                 mutation {
@@ -61,15 +61,101 @@ export class GraphQLService {
         })
     }
 
-    log(username, password) {
-        return this.apollo.watchQuery<Query>({
+    log({username, password}) {
+        return this.apollo.query<Query>({
             query: gql `
                 query {
                     log(username: "${username}", password: "${password}") {
+                        id,
+                        token
+                    }
+                }
+            `
+        }).pipe(map(item => item.data.log));
+    }
+
+    changeLocation({user, latitude, longitude}) {
+        return this.apollo.mutate({
+            mutation: gql `
+                mutation {
+                    newLocation(user: ${user}, latitude: ${latitude}, longitude: ${longitude}) {
+                        id,
+                        latitude,
+                        longitude
+                    }
+                }
+            `
+        });
+    }
+
+    changePicture({user, mimeType, binaryContent, name}) {
+        return this.apollo.mutate({
+            mutation: gql `
+                mutation {
+                    upload(user: ${user}, mimeType: "${mimeType}", binaryContent: "${binaryContent}", name: "${name}") {
+                        id,
+                        mimeType,
+                        binaryContent,
+                        name
+                    }
+                }
+            `
+        });
+    }
+
+    getUserById(id) {
+        return this.apollo.query<Query>({
+            query: gql `
+                query {
+                    byId(id: ${id}) {
+                        email,
+                        username,
+                        github,
+                        token,
+                        location {
+                            latitude,
+                            longitude
+                        },
+                        picture {
+                            mimeType,
+                            binaryContent
+                        }
+                    }
+                }
+            `
+        }).pipe(map(item => item.data.byId));
+    }
+
+    getUserByToken(token) {
+        return this.apollo.query<Query>({
+            query: gql `
+                query {
+                    byToken(token: "${token}") {
                         id
                     }
                 }
             `
-        }).valueChanges.pipe(map(item => item.data.log));
+        }).pipe(map(item => item.data.byToken));
+    }
+
+    getAllUsers(page: number) {
+        return this.apollo.query<Query>({
+            query: gql `
+                query {
+                    allUsers(page: ${page}) {
+                        username,
+                        github,
+                        location {
+                            latitude,
+                            longitude
+                        },
+                        picture {
+                            mimeType,
+                            binaryContent
+                        }
+                    }
+                }
+            `
+        }).pipe(map(item => item.data.allUsers));
     }
 }
