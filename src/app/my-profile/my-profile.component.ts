@@ -14,7 +14,7 @@ import { Picture } from '../../shared/types/picture.types';
 export class MyProfileComponent implements OnInit {
 
   id: number;
-  navigationData: any;
+  //navigationData: any;
   user: User
 
   isLoading: boolean = false;
@@ -35,20 +35,32 @@ export class MyProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getUserLocation();
     this.getUser();
+    this.getUserLocation();
   }
 
   getUserLocation() {
     if (navigator.geolocation) {
-      let nav;
-      navigator.geolocation.getCurrentPosition(this.getPosition);
+      //let nav;
+      navigator.geolocation.watchPosition((position) => {
+        this.getPosition(position);
+      });
       //console.log(nav);
     }
   }
 
   getPosition(position) {
-    console.log(position.coords.latitude);
+    console.log(position.coords);
+    let navigationData: any = {};
+    navigationData.user = this.id;
+    navigationData.latitude = position.coords.latitude;
+    navigationData.longitude = position.coords.longitude;
+    this.graphService.changeLocation(navigationData).subscribe(
+      loc => console.log(loc),
+      (err) => {
+        console.log(err);
+        this.toast.setMessage('Error getting location');
+      });
   }
   
   getUser() {

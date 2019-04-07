@@ -1,0 +1,22 @@
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+mat-card {
+    margin-top: 15px;
+}
+
+mat-card-header {
+    font-weight: bold;
+}
+
+mat-card-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    padding: 5px;
+}

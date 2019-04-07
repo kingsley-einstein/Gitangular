@@ -5,10 +5,6 @@
         <i class="fa fa-user"></i>
         My Profile
       </button>
-      <button mat-menu-item>
-        <i class="fa fa-pencil"></i>
-        Edit Profile
-      </button>
       <button mat-menu-item (click)="logout()">
         <i class="fa fa-sign-out"></i>
         Logout
@@ -20,7 +16,7 @@
     <nav>
       <a routerLink="./" routerLinkActive="btn btn-sm btn-success">Home</a>
       <a routerLink="./devs" routerLinkActive="btn btn-sm btn-success">Developers</a>
-      <a href="#">Where dem developers at?</a>
+      <a routerLink="./map" routerLinkActive="btn btn-sm btn-success">Where dem developers at?</a>
     </nav>
   </mat-toolbar>
   <mat-card>

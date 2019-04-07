@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppMaterialModule } from './app-material.module';
@@ -18,6 +19,8 @@ import { HomeComponent } from './home/home.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DevelopersListComponent } from './developers-list/developers-list.component';
+import { MapComponent } from './map/map.component';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { DevelopersListComponent } from './developers-list/developers-list.compo
     HomeComponent,
     MyProfileComponent,
     ProfileComponent,
-    DevelopersListComponent
+    DevelopersListComponent,
+    MapComponent,
+    GithubProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,10 @@ import { DevelopersListComponent } from './developers-list/developers-list.compo
     HttpClientModule,
     HttpLinkModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAjwkqqSzA6b__HNfGVE7Qfkar1J3gnbvw'
+    })
   ],
   providers: [
     ToastComponent,

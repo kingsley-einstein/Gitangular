@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { Activator } from '../shared/guard/activator';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { DevelopersListComponent } from './developers-list/developers-list.component';
+import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
           {
             path: 'devs',
             component: DevelopersListComponent
+          },
+          {
+            path: 'map',
+            component: MapComponent
           }
         ]
       }

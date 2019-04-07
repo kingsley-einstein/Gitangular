@@ -18,6 +18,10 @@ mat-toolbar > nav {
     flex-flow: row wrap;
 }
 
+mat-card {
+    height: 100vh;
+}
+
 a {
     padding: 10px 12px;
     color: whitesmoke;

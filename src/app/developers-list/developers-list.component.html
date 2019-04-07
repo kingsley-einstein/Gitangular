@@ -1,6 +1,6 @@
 <div *ngIf="users" class="list">
-  <ul *ngFor="let user of users">
-    <li>
+  <ul>
+    <li *ngFor="let user of users">
       <mat-card>
         <mat-menu #menu="matMenu">
           <button mat-menu-item>

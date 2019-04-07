@@ -43,17 +43,26 @@
     </mat-card-footer>
   </mat-card>
 </div>
-<mat-tab-group>
+<mat-tab-group mat-align-tabs="center">
   <mat-tab>
     <ng-template matTabLabel>
       <i class="fa fa-github"></i>
       <b>My Github Profile</b>
+    </ng-template>
+    <ng-template matTabContent>
+      <app-github-profile *ngIf="user" [username]="user.github"></app-github-profile>
     </ng-template>
   </mat-tab>
   <mat-tab>
     <ng-template matTabLabel>
       <i class="fa fa-comment"></i>
       <b>My Github Gists</b>
+    </ng-template>
+  </mat-tab>
+  <mat-tab>
+    <ng-template matTabLabel>
+      <i class="fa fa-pencil"></i>
+      <b>Edit Profile</b>
     </ng-template>
   </mat-tab>
 </mat-tab-group>

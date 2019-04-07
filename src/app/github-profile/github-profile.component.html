@@ -1,0 +1,19 @@
+<div *ngIf="!profile">
+  <i class="fa fa-warning"></i>
+  No profile available!
+</div>
+<div *ngIf="profile" class="flex">
+  <mat-card>
+    <mat-card-header>Github Profile</mat-card-header>
+    <mat-card-content>
+      <div class="flex">
+        <img mat-card-md-image mat-card-avatar src="{{ profile.avatar_url}}"/>
+      </div>
+      <div>
+        <i class="fa fa-user"></i>
+        <strong>Username:</strong>
+        {{ profile.login }}
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
